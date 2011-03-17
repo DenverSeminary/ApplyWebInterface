@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>ApplyWeb Integration Interface</title>
+		<link rel="stylesheet" href="{{ static_url("main.css") }}" type="text/css"/>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js' type='text/javascript'></script>
+		<script>
+			$(document).ready(
+				function() {
+					$("#modal").click(
+						function () {
+							$("#modal").fadeOut('fast');
+						}
+					);
+					$("span").click(
+						function() {	
+							var elClass = $(this).attr("class");							
+							if (elClass == 'sync')							
+								$("#modal").html('<h2>'+ $(this).attr("id") +'</h2>This file encountered an error during loading. It has been downloaded but may not yet have been completely loaded into CX');
+							if (elClass == 'flagged')
+							{
+								var url = '/async?file=' + $(this).attr("id").split('.')[0];								
+								$("#modal").html(url);								
+								$.get(url, function(data) {		
+									$("#modal").html(data);									  
+								});	
+							}
+							$("#modal").fadeIn('fast');
+						}
+					);
+				}
+			);
+			
+		</script>
+	</head>
+	<body>
+		<h2>ApplyWeb Integration Interface</h2>
+		<div>
+			File List:
+		</div>
+		<div class='files'>
+			{% for f in files %}
+				<span id='{{ escape(f[0]) }}' class='{{ f[2] }}'>{{ escape(f[0]) }}</span>			
+			{% end %}
+			<div id="modal" style="display: none;">								
+			</div>
+		</div>		
+	</body>
+</html>

@@ -1,0 +1,9 @@
+body {font-family: Corbel, Calibri, sans-serif; font-size: 10pt;}
+
+.files { font-weight: bold; color: white; }
+.files span { float: left; padding: 1%; clear:both; width: 25%; cursor: pointer; -moz-border-top-right-radius: 25px 15px; border-top-right-radius: 25px 15px;}
+.sync {background-color: red;}
+.flagged {background-color: orange;}
+.good {background-color: green;}
+#modal {position: relative; padding-left: 3%; padding-right: 3%; padding-bottom: 3%; padding-top:1%; background-color: grey; width: 33%; margin: auto; -moz-border-top-right-radius: 25px 15px; border-top-right-radius: 25px 15px; -moz-border-top-left-radius: 25px 15px; border-top-left-radius: 25px 15px;}
+
