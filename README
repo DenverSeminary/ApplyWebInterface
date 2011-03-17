@@ -1,0 +1,16 @@
+Python-based web service for users to check on the status of the file loads
+
+External Python Dependencies:
+-----------------------------
+* tornado (deps: simplejson, pycurl)
+* 
+* httplib2 - interaction with the tracking database
+
+
+Usage:
+------------------------------
+python main.py
+
+Additional Information:
+------------------------------
+Database is Kyoto Cabinet/Tycoon on lindev (until Tycoon is ported to Windows). You must make sure that's running if this process is to work.
