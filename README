@@ -11,6 +11,16 @@ Usage:
 ------------------------------
 python main.py
 
+
+
 Additional Information:
 ------------------------------
 Database is Kyoto Cabinet/Tycoon on lindev (until Tycoon is ported to Windows). You must make sure that's running if this process is to work.
+
+
+
+Future Plans:
+------------------------------
+1. New process logging system that records successes ( TotalRecords, Start, Finish ) {currently only failures are logged}
+2. For files that are out of sync (file downloaded but no load attempt made), allow the user to queue/schedule/run the process for that file
+
