@@ -36,7 +36,8 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", MainHandler),  
-            (r"/async", AsynchHandler),          
+            (r"/async", AsynchHandler),  
+            (r"/runfile", FileLoader),        
         ]
         settings = dict(
             #cookie_secret="12oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",            
@@ -46,6 +47,13 @@ class Application(tornado.web.Application):
             debug=True,
         )
         tornado.web.Application.__init__(self, handlers, **settings)
+        
+class FileLoader(tornado.web.RequestHandler):
+	@tornado.web.asynchronous
+	def get(self):
+		filename = self.get_argumet('file')
+		self.write(filename)
+		self.finish()
 
 class AsynchHandler(tornado.web.RequestHandler):	
 	@tornado.web.asynchronous
