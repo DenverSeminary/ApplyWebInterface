@@ -91,7 +91,7 @@ class MainHandler(tornado.web.RequestHandler):
 		files = []
 		db = dbi()
 		db.conn()
-		flist = os.listdir('../ApplyWeb/data/')
+		flist = os.listdir('//barnabas/Users/applyweb')
 		for f in flist:	
 			fname = f.split('.')[0]
 			data = db.get(fname)
